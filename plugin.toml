@@ -1,0 +1,14 @@
+[plugin]
+name = "fledge-plugin-qr"
+version = "0.1.0"
+description = "Generate QR codes in the terminal — text, URLs, WiFi, and more"
+author = "corvid-agent"
+
+[[commands]]
+name = "qr"
+description = "Generate and display QR codes in the terminal"
+binary = "bin/fledge-qr"
+
+[hooks]
+build = "bash build.sh"
+post_install = "bash build.sh"
