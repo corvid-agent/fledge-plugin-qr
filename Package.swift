@@ -1,15 +1,17 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
     name: "fledge-qr",
-    platforms: [.macOS(.v12)],
+    platforms: [.macOS(.v14)],
+    dependencies: [
+        .package(url: "https://github.com/CorvidLabs/swift-qr.git", from: "0.1.0"),
+    ],
     targets: [
         .executableTarget(
             name: "fledge-qr",
-            linkerSettings: [
-                .linkedFramework("CoreImage"),
-                .linkedFramework("CoreGraphics"),
+            dependencies: [
+                .product(name: "SwiftQR", package: "swift-qr"),
             ]
         ),
     ]
